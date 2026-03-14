@@ -102,7 +102,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
               children: [
                 calcbutton('AC', Colors.grey, Colors.black),
                 calcbutton('+', Colors.orange, Colors.white),
-                calcbutton('-', Colors.orange, Colors.white),
+                calcbutton('-', const Color.fromRGBO(255, 152, 0, 1), Colors.white),
               ],
             ),
 
@@ -149,7 +149,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 calcbutton('0', Colors.blue, Colors.white),
-                calcbutton('=', Colors.green, Colors.white),
+                calcbutton('=', const Color.fromRGBO(255, 152, 0, 1), Colors.white),
               ],
             ),
 
