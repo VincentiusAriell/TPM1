@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tpm1/screen/calculator_page.dart';
+import 'package:tpm1/screen/stopwatch_page.dart';
 import 'login_page.dart';
 import 'cek_ganjil_genap_prima.dart';
 
@@ -16,10 +18,10 @@ class _HomepageState extends State<Homepage> {
   int selectedIndex = 0;
 
   final List<Widget> pages = [
-    const Center(child: Text("Penjumlahan & Pengurangan")),
+    const CalculatorPage(),
     const GanjilGenapPrimaPage(),
     const Center(child: Text("Jumlah Total Digit")),
-    const Center(child: Text("Stopwatch")),
+    const StopwatchPage(),
     const Center(child: Text("Luas & Volume Piramid")),
   ];
 

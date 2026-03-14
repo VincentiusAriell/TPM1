@@ -14,10 +14,31 @@ class _GanjilGenapPrimaPageState extends State<GanjilGenapPrimaPage> {
   void cekAngka() {
     int angka = int.parse(angkaController.text);
 
+    // cek ganjil genap
     if (angka % 2 == 0) {
       hasil = "Bilangan Genap";
     } else {
       hasil = "Bilangan Ganjil";
+    }
+
+    // cek bilangan prima
+    bool prima = true;
+
+    if (angka < 2) {
+      prima = false;
+    } else {
+      for (int i = 2; i <= angka ~/ 2; i++) {
+        if (angka % i == 0) {
+          prima = false;
+          break;
+        }
+      }
+    }
+
+    if (prima) {
+      hasil += "dan Bilangan Prima";
+    } else {
+      hasil += "dan Bukan Bilangan Prima";
     }
 
     setState(() {});
