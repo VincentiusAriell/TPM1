@@ -45,6 +45,7 @@ class _StopwatchPageState extends State<StopwatchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: Column( // this is the column
@@ -60,7 +61,7 @@ class _StopwatchPageState extends State<StopwatchPage> {
                   height: 250,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,  // this one is use for make the circle on ui.
+                    shape: BoxShape.circle,  
                     border: Border.all(
                       color: Color.fromARGB(255, 0, 0, 0),
                       width: 4,
