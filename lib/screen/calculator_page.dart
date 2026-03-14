@@ -96,7 +96,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
               ],
             ),
 
-            /// ROW 1
+            //operasi
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -108,7 +108,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
 
             const SizedBox(height: 10),
 
-            /// ROW 2
+            //nomer bawah
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -120,7 +120,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
 
             const SizedBox(height: 10),
 
-            /// ROW 3
+            //nomer tengah
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -132,7 +132,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
 
             const SizedBox(height: 10),
 
-            /// ROW 4
+            //nomor atas
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -144,7 +144,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
 
             const SizedBox(height: 10),
 
-            /// ROW 5
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
