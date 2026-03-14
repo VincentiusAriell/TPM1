@@ -85,20 +85,6 @@ void _login() {
             ),
             SizedBox(height: 20,),
             ElevatedButton(onPressed: _login, child: Text("Login")),
-            Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
-                        SizedBox(height: 20),
-                        Text(
-                          'Data Kelompok:',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                        ),
-                        SizedBox(height: 5),
-                        Text('Ahmad Akbar - 113'),
-                        Text('Vincentius Ariell S - 131'),
-                        Text('Isyraf Fajar Arundaya - 140'),
-                      ],
-            ),
 
           ],
         ),
