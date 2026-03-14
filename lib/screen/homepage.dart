@@ -4,6 +4,7 @@ import 'package:tpm1/screen/stopwatch_page.dart';
 import 'login_page.dart';
 import 'cek_ganjil_genap_prima.dart';
 import 'luas_volume.dart';
+import 'jumlah_total_angka.dart';
 
 class Homepage extends StatefulWidget {
   final String uname;
@@ -21,7 +22,7 @@ class _HomepageState extends State<Homepage> {
   final List<Widget> pages = [
     const CalculatorPage(),
     const GanjilGenapPrimaPage(),
-    const Center(child: Text("Jumlah Total Digit")),
+    const JumlahTotalDigitPage(),
     const StopwatchPage(),
     const LuasVolumePage(),
   ];
