@@ -11,9 +11,11 @@ class _LuasVolumePage extends State<LuasVolumePage> {
   final TextEditingController jumlahpanjangalas = TextEditingController();
   final TextEditingController jumlahlebaralas = TextEditingController();
   final TextEditingController jumlahtinggisisitegak = TextEditingController();
-  String hitung = "";
 
-  void hitungLuas(){
+  String hitung = "";
+  String judulHasil = "Hasil";
+
+  void hitungLuas() {
     double lebaralas = double.parse(jumlahlebaralas.text);
     double panjangalas = double.parse(jumlahpanjangalas.text);
     double tinggisisitegak = double.parse(jumlahtinggisisitegak.text);
@@ -24,19 +26,21 @@ class _LuasVolumePage extends State<LuasVolumePage> {
 
     setState(() {
       hitung = hasil.toString();
+      judulHasil = "Hasil Luas Piramida";
     });
   }
 
-  void hitungVolume(){
+  void hitungVolume() {
     double lebaralas = double.parse(jumlahlebaralas.text);
     double panjangalas = double.parse(jumlahpanjangalas.text);
     double tinggisisitegak = double.parse(jumlahtinggisisitegak.text);
 
     double luasalas = panjangalas * lebaralas;
-    double hasil = 1/3 * luasalas * tinggisisitegak;
+    double hasil = 1 / 3 * luasalas * tinggisisitegak;
 
     setState(() {
       hitung = hasil.toString();
+      judulHasil = "Hasil Volume Piramida";
     });
   }
 
@@ -48,25 +52,29 @@ class _LuasVolumePage extends State<LuasVolumePage> {
         children: [
           TextField(
             controller: jumlahlebaralas,
-            keyboardType: TextInputType.numberWithOptions(decimal: true),
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
             decoration: const InputDecoration(
               labelText: "Masukkan Lebar Alas",
               border: OutlineInputBorder(),
             ),
           ),
 
+          const SizedBox(height: 10),
+
           TextField(
             controller: jumlahpanjangalas,
-            keyboardType: TextInputType.numberWithOptions(decimal: true),
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
             decoration: const InputDecoration(
               labelText: "Masukkan Panjang Alas",
               border: OutlineInputBorder(),
             ),
           ),
 
+          const SizedBox(height: 10),
+
           TextField(
             controller: jumlahtinggisisitegak,
-            keyboardType: TextInputType.numberWithOptions(decimal: true),
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
             decoration: const InputDecoration(
               labelText: "Masukkan Tinggi Sisi Tegak",
               border: OutlineInputBorder(),
@@ -82,7 +90,6 @@ class _LuasVolumePage extends State<LuasVolumePage> {
                 onPressed: hitungLuas,
                 child: const Text("Hitung Luas"),
               ),
-
               ElevatedButton(
                 onPressed: hitungVolume,
                 child: const Text("Hitung Volume"),
@@ -90,10 +97,10 @@ class _LuasVolumePage extends State<LuasVolumePage> {
             ],
           ),
 
-          const SizedBox(height: 20,),
+          const SizedBox(height: 20),
 
           Text(
-            "Hasil: $hitung",
+            "$judulHasil: $hitung",
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ],
