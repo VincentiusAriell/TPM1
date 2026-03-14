@@ -16,9 +16,9 @@ class _GanjilGenapPrimaPageState extends State<GanjilGenapPrimaPage> {
 
     // cek ganjil genap
     if (angka % 2 == 0) {
-      hasil = "Bilangan Genap";
+      hasil = "Bilangan Genap ";
     } else {
-      hasil = "Bilangan Ganjil";
+      hasil = "Bilangan Ganjil ";
     }
 
     // cek bilangan prima
