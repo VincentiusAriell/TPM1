@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'cek_ganjil_genap_prima.dart';
+import 'luas_volume.dart';
 
 class Homepage extends StatefulWidget {
   final String uname;
@@ -20,7 +21,7 @@ class _HomepageState extends State<Homepage> {
     const GanjilGenapPrimaPage(),
     const Center(child: Text("Jumlah Total Digit")),
     const Center(child: Text("Stopwatch")),
-    const Center(child: Text("Luas & Volume Piramid")),
+    const LuasVolumePage(),
   ];
 
   @override
