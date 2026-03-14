@@ -52,7 +52,7 @@ class _GanjilGenapPrimaPageState extends State<GanjilGenapPrimaPage> {
     String jenis = (angka % 2 == 0) ? "Genap" : "Ganjil";
     String prima = isPrima(angka)
         ? "dan merupakan bilangan Prima"
-        : "dan bukan bilangan Prima";
+        : " ";
 
     setState(() {
       _hasil = "Bilangan $angka merupakan bilangan $jenis $prima";
