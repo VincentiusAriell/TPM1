@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController _unameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final List<String> correctPasswords = ["131", "154"];
+  final List<String> correctPasswords = ["131", "154", "113"];
   bool isLogin = false;
 
 void _login() {
@@ -37,8 +37,8 @@ void _login() {
 
   if (correctPasswords.contains(password)) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Login Berhasil'),
+      SnackBar(
+        content: Text('Login Berhasil! Welcome Back, $uname'),
         backgroundColor: Colors.green,
       ),
     );

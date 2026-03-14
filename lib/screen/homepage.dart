@@ -8,52 +8,84 @@ class Homepage extends StatelessWidget {
   const Homepage({super.key, required this.uname});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 0, 136, 255),
-        title: Text('TPM Tugas 1'),
-        leading: Icon(Icons.menu, color: Colors.white),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.logout, color: Colors.white),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => LoginPage()),
-              );
-            },
-          ),
-        ],
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: ListView(
-          children: [
-            Container(
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                image: DecorationImage(
-                  image: NetworkImage('https://source.unsplash.com/random/800x600'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Hello',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-
-            SizedBox(height: 20),
-            Text(
-              'hello there, $uname!',
-              style: TextStyle(fontSize: 16),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text('Hello There, $uname'),
+          backgroundColor: Colors.blue.shade700,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.logout),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginPage(),
+                  ),
+                );
+              },
             ),
           ],
         ),
-      ),
-    );
-  }
+        drawer: const NavigationDrawer(),
+      );
+}
+
+class NavigationDrawer extends StatelessWidget {
+  const NavigationDrawer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => Drawer(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              buildMenuItems(context),
+            ],
+          ),
+        ),
+      );
+
+  Widget buildMenuItems(BuildContext context) => Column(
+        children: [
+
+          ListTile(
+            leading: const Icon(Icons.arrow_back),
+            title: const Text('Back'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+
+          const Divider(),
+
+          ListTile(
+            leading: const Icon(Icons.add),
+            title: const Text('Penjumlahan & Pengurangan'),
+            onTap: () {},
+          ),
+
+          ListTile(
+            leading: const Icon(Icons.calculate),
+            title: const Text('Cek Ganjil / Genap & Prima'),
+            onTap: () {},
+          ),
+
+          ListTile(
+            leading: const Icon(Icons.format_list_numbered),
+            title: const Text('Jumlah Total Digit'),
+            onTap: () {},
+          ),
+
+          ListTile(
+            leading: const Icon(Icons.timer),
+            title: const Text('Stopwatch'),
+            onTap: () {},
+          ),
+
+          ListTile(
+            leading: const Icon(Icons.change_history),
+            title: const Text('Luas & Volume Piramid'),
+            onTap: () {},
+          ),
+        ],
+      );
 }
