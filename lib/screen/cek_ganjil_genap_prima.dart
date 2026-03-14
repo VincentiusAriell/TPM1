@@ -9,7 +9,8 @@ class GanjilGenapPrimaPage extends StatefulWidget {
 
 class _GanjilGenapPrimaPageState extends State<GanjilGenapPrimaPage> {
   final TextEditingController angkaController = TextEditingController();
-  String hasil = "";
+  String _hasil = "";
+  String _warningMessage = "";
 
   bool isPrima(int n) {
     if (n < 2) return false;
@@ -19,15 +20,34 @@ class _GanjilGenapPrimaPageState extends State<GanjilGenapPrimaPage> {
     return true;
   }
 
+  void resetForm() {
+    setState(() {
+      angkaController.clear();
+      _hasil = "";
+      _warningMessage = "";
+    });
+  }
+
   void cekAngka() {
     if (angkaController.text.isEmpty) {
       setState(() {
-        hasil = "Masukkan angka terlebih dahulu";
+        _warningMessage = "Masukkan angka terlebih dahulu";
       });
       return;
     }
 
-    int angka = int.parse(angkaController.text);
+    int? angka = int.tryParse(angkaController.text);
+
+    if (angka == null) {
+      setState(() {
+        _warningMessage = "Input harus berupa angka!";
+      });
+      return;
+    } else {
+      setState(() {
+        _warningMessage = "";
+      });
+    }
 
     String jenis = (angka % 2 == 0) ? "Genap" : "Ganjil";
     String prima = isPrima(angka)
@@ -35,7 +55,7 @@ class _GanjilGenapPrimaPageState extends State<GanjilGenapPrimaPage> {
         : "dan bukan bilangan Prima";
 
     setState(() {
-      hasil = "Bilangan $jenis $prima";
+      _hasil = "Bilangan $angka merupakan bilangan $jenis $prima";
     });
   }
 
@@ -44,7 +64,6 @@ class _GanjilGenapPrimaPageState extends State<GanjilGenapPrimaPage> {
     return ListView(
       padding: const EdgeInsets.all(20),
       children: [
-        
         Card(
           child: ExpansionTile(
             title: const Text("Apa itu bilangan Ganjil?"),
@@ -111,6 +130,9 @@ class _GanjilGenapPrimaPageState extends State<GanjilGenapPrimaPage> {
 
         const SizedBox(height: 20),
 
+        if (_warningMessage.isNotEmpty)
+          Text(_warningMessage, style: const TextStyle(color: Colors.red)),
+
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(onPressed: cekAngka, child: const Text("Cek")),
@@ -118,9 +140,28 @@ class _GanjilGenapPrimaPageState extends State<GanjilGenapPrimaPage> {
 
         const SizedBox(height: 20),
 
-        Text(
-          hasil,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        TextField(
+          controller: TextEditingController(text: _hasil),
+          readOnly: true,
+          maxLines: 3,
+          decoration: const InputDecoration(
+            labelText: "Hasil",
+            alignLabelWithHint: true,
+            border: OutlineInputBorder(),
+          ),
+        ),
+
+        const SizedBox(height: 20),
+
+        Align(
+          alignment: Alignment.center,
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.3,
+            child: ElevatedButton(
+              onPressed: resetForm,
+              child: const Text("Reset"),
+            ),
+          ),
         ),
       ],
     );
