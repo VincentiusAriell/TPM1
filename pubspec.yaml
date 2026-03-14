@@ -39,7 +39,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
   math_expressions: ^2.4.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
