@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController _unameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final List<String> correctPasswords = ["131", "154", "113"];
+  final List<String> correctPasswords = ["131", "140", "113"];
   bool isLogin = false;
 
 void _login() {
