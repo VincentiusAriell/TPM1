@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//pasaran
 const _pasaran = ['Legi', 'Pahing', 'Pon', 'Wage', 'Kliwon'];
 
 String _namaHariIndonesia(int weekday) {
