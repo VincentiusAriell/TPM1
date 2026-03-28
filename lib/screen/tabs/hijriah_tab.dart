@@ -31,6 +31,12 @@ class _HijriahTabState extends State<HijriahTab> {
     return namaBulan[bulan];
   }
 
+  @override
+  void initState(){
+    super.initState();
+    konversiHijriah(selectedDate);
+  }
+
   void konversiHijriah(DateTime date) {
     HijriCalendar hijri = HijriCalendar.fromDate(date);
 
@@ -61,6 +67,8 @@ class _HijriahTabState extends State<HijriahTab> {
         },),
 
         const SizedBox(height: 20),
+      
+      /// hasil masehi
       Card(
           child: ListTile(
             title: const Text("Tanggal Masehi"),
