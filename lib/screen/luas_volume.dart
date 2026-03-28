@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 class LuasVolumePage extends StatefulWidget {
@@ -11,18 +12,25 @@ class _LuasVolumePage extends State<LuasVolumePage> {
   final TextEditingController jumlahpanjangalas = TextEditingController();
   final TextEditingController jumlahlebaralas = TextEditingController();
   final TextEditingController jumlahtinggisisitegak = TextEditingController();
+  
+  double cekMinus(double nilai) {
+  return nilai < 0 ? 0 : nilai;
+}
 
   String hitung = "";
   String judulHasil = "Hasil";
 
   void hitungLuas() {
-    double lebaralas = double.parse(jumlahlebaralas.text);
-    double panjangalas = double.parse(jumlahpanjangalas.text);
-    double tinggisisitegak = double.parse(jumlahtinggisisitegak.text);
-
-    double kelilingalas = (panjangalas * 2) + (lebaralas * 2);
+    double lebaralas = cekMinus(double.parse(jumlahlebaralas.text));
+    double panjangalas = cekMinus(double.parse(jumlahpanjangalas.text));
+    double tinggisisitegak = cekMinus(double.parse(jumlahtinggisisitegak.text));
+    double setengahp = 1/2 * panjangalas;
+    double setengahl = 1/2 * lebaralas;
+    double kulitpiramid1 = panjangalas * sqrt((tinggisisitegak*tinggisisitegak) + (setengahp * setengahp));
+    double kulitpiramid2 = lebaralas * sqrt((tinggisisitegak*tinggisisitegak) + (setengahl * setengahl));
+    double luastengah = kulitpiramid1 + kulitpiramid2;
     double luasalas = panjangalas * lebaralas;
-    double hasil = luasalas + (0.5 * kelilingalas * tinggisisitegak);
+    double hasil = luasalas + luastengah;
 
     setState(() {
       hitung = hasil.toString();
@@ -31,9 +39,9 @@ class _LuasVolumePage extends State<LuasVolumePage> {
   }
 
   void hitungVolume() {
-    double lebaralas = double.parse(jumlahlebaralas.text);
-    double panjangalas = double.parse(jumlahpanjangalas.text);
-    double tinggisisitegak = double.parse(jumlahtinggisisitegak.text);
+    double lebaralas = cekMinus(double.parse(jumlahlebaralas.text));
+    double panjangalas = cekMinus(double.parse(jumlahpanjangalas.text));
+    double tinggisisitegak = cekMinus(double.parse(jumlahtinggisisitegak.text));
 
     double luasalas = panjangalas * lebaralas;
     double hasil = 1 / 3 * luasalas * tinggisisitegak;

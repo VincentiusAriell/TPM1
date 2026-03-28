@@ -6,6 +6,7 @@ import 'login_page.dart';
 import 'cek_ganjil_genap_prima.dart';
 import 'luas_volume.dart';
 import 'jumlah_total_angka.dart';
+import 'kalender_page.dart';
 
 class Homepage extends StatefulWidget {
   final String uname;
@@ -26,6 +27,8 @@ class _HomepageState extends State<Homepage> {
     const JumlahTotalDigitPage(),
     const StopwatchPage(),
     const LuasVolumePage(),
+    const KalenderPage(),
+
   ];
 
   @override
@@ -130,6 +133,14 @@ class MyDrawer extends StatelessWidget {
               title: const Text('Luas & Volume Piramid'),
               onTap: () {
                 onItemTap(5);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.calendar_month),
+              title: const Text('Kalender'),
+              onTap: () {
+                onItemTap(6);
                 Navigator.pop(context);
               },
             ),
