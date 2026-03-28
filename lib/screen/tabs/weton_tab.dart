@@ -26,17 +26,6 @@ int _pasaranIndex(DateTime date) {
 }
 
 
-int _neptuHari(int weekday) {
-  const n = [0, 4, 3, 7, 8, 6, 9, 5];
-  return n[weekday];
-}
-
-
-int _neptuPasaran(int pasaranIndex) {
-  const n = [5, 9, 7, 4, 8];
-  return n[pasaranIndex];
-}
-
 class WetonTab extends StatefulWidget {
   const WetonTab({super.key});
 
@@ -79,9 +68,6 @@ class _WetonTabState extends State<WetonTab> {
     final pIndex = _pasaranIndex(selectedDate);
     final pasaran = _pasaran[pIndex];
     final weton = '$hari $pasaran';
-    final nHari = _neptuHari(weekday);
-    final nPas = _neptuPasaran(pIndex);
-    final totalNeptu = nHari + nPas;
 
     return ListView(
       padding: const EdgeInsets.all(20),
