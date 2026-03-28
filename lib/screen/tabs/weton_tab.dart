@@ -16,8 +16,6 @@ String _namaHariIndonesia(int weekday) {
   return names[weekday];
 }
 
-/// Pasaran: siklus 5 hari. Acuan umum primbon: 1 Januari 1900 = Senin Pahing
-/// (selaras dengan tabel weton Rabu Wage 21/07/2004, Minggu Kliwon 29/03/2026).
 int _pasaranIndex(DateTime date) {
   final d = DateTime(date.year, date.month, date.day);
   final base = DateTime(1900, 1, 1);
